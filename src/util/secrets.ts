@@ -29,8 +29,8 @@ function checkRequiredEnvVariables(
 
 loadEnvVariables()
 
-export const ENVIRONMENT = process.env.NODE_ENV
-export const MONGODB_URI = process.env.MONGODB_URI
+export const ENVIRONMENT = process.env.NODE_ENV as string
+export const MONGODB_URI = process.env.MONGODB_URI as string
 
 const requiredVariablesToCheck: { name: string; value: string | undefined }[] =
     [{ name: "MONGODB_URI", value: MONGODB_URI }]

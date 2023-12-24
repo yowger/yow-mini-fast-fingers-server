@@ -1,8 +1,8 @@
 import express from "express"
 import compression from "compression"
-import mongoose from "mongoose"
-import { MONGODB_URI } from "./util/secrets"
+
 import logger from "./util/logger"
+import "./database"
 
 process.on("uncaughtException", (error) => {
     logger.error(error)
