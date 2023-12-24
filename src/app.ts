@@ -2,6 +2,11 @@ import express from "express"
 import compression from "compression"
 import mongoose from "mongoose"
 import { MONGODB_URI } from "./util/secrets"
+import logger from "./util/logger"
+
+process.on("uncaughtException", (error) => {
+    logger.error(error)
+})
 
 const app = express()
 const port = process.env.PORT || 3000
