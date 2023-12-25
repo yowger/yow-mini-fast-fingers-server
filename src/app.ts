@@ -3,6 +3,7 @@ import compression from "compression"
 
 import logger from "./util/logger"
 import "./database"
+import routes from "./routes"
 
 process.on("uncaughtException", (error) => {
     logger.error(error)
@@ -15,5 +16,7 @@ app.set("port", port)
 app.use(compression())
 app.use(express.json({ limit: "1kb" }))
 app.use(express.urlencoded({ limit: "1kb", extended: true }))
+
+app.use("/", routes)
 
 export default app

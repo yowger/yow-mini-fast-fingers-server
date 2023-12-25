@@ -6,7 +6,7 @@ const env = app.get("env")
 const server = app
     .listen(port, () => {
         console.log(
-            "App is running at http://loclahost:%d in %s mode",
+            "App is running at http://localhost:%d in %s mode",
             port,
             env
         )
