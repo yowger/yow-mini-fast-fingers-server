@@ -19,9 +19,9 @@ router.get("/", async (req: Request, res: Response) => {
 
         const limit = req.query.limit ? parseInt(req.query.limit as string) : 10
 
-        const scores = ScoreRepo.getScoreAndPaginated(pageNumber, limit)
+        const scores = await ScoreRepo.getScoreAndPaginated(pageNumber, limit)
 
-        res.status(200).json({ message: "Score fetched successfully", scores })
+        res.status(200).json({ message: "Scores fetched successfully", scores })
     } catch (error: unknown) {
         logger.error(`Failed to get scores: ${error}`)
 
