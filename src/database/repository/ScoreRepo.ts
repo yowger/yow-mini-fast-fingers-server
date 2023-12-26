@@ -13,6 +13,7 @@ async function getScoreAndPaginated(
     return ScoreModel.find({})
         .skip(limit * (pageNumber - 1))
         .limit(limit)
+        .sort({ date: "desc" })
         .lean()
         .exec()
 }
