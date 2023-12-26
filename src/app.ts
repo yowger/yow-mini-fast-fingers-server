@@ -12,16 +12,13 @@ process.on("uncaughtException", (error) => {
 
 const app = express()
 const port = process.env.PORT || 3000
-const allowedOrigins = [
-    "http://localhost:5173",
-    "https://yow-fast-fingers.onrender.com",
-]
+const allowedOrigin = "https://yow-fast-fingers.onrender.com"
 
 app.set("port", port)
 app.use(compression())
 app.use(express.json({ limit: "1kb" }))
 app.use(express.urlencoded({ limit: "1kb", extended: true }))
-app.use(cors({ origin: allowedOrigins }))
+app.use(cors({ origin: allowedOrigin, optionsSuccessStatus: 200 }))
 
 app.use("/", routes)
 
